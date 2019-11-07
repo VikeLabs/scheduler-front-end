@@ -1,4 +1,7 @@
-[![Build Status](https://travis-ci.com/VikeLabs/scheduler-front-end.svg?branch=master)](https://travis-ci.com/VikeLabs/scheduler-front-end)
+[![Contributors][contributors-shield]][contributors-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![Build Status][build-shield]][build-url]
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -44,3 +47,14 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/VikeLabs/scheduler-front-end.svg?style=flat-square
+[contributors-url]: https://github.com/VikeLabs/scheduler-front-end/graphs/contributors
+[stars-shield]: https://img.shields.io/github/stars/VikeLabs/scheduler-front-end.svg?style=flat-square
+[stars-url]: https://github.com/VikeLabs/scheduler-front-end/stargazers
+[issues-shield]: https://img.shields.io/github/issues/VikeLabs/scheduler-front-end.svg?style=flat-square
+[issues-url]: https://github.com/othneildrew/VikeLabs/scheduler-front-end/issues
+[build-shield]: https://travis-ci.com/VikeLabs/scheduler-front-end.svg?branch=master
+[build-url]: https://travis-ci.com/VikeLabs/scheduler-front-end
