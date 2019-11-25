@@ -1,0 +1,17 @@
+.tool-bar {
+  display: flex;
+  color: white;
+}
+
+.title {
+  flex-grow: 1;
+}
+
+.menu-icon {
+  color: white;
+  margin-right: 2px;
+}
+
+#button-login {
+  color: white;
+}
