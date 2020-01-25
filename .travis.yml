@@ -5,5 +5,6 @@ before_script:
   - npm i
 script:
   - npm run lint
+  - npm run test:noWatch
 notifications:
   slack: vikelabs:gp9kP9TNGW6pWJCiDHdyszaw
