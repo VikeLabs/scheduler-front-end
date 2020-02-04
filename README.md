@@ -24,7 +24,7 @@
 
 To get a local copy up and running follow these simple steps. 
 
-For more detailed instructions checkout out the <a href="https://github.com/VikeLabs/scheduler-back-end/wiki/Setup">wiki</a>
+For more detailed instructions checkout out the <a href="https://github.com/VikeLabs/scheduler-front-end/wiki/Setup">wiki</a>
 
 ### Prerequisites
 
@@ -36,7 +36,7 @@ This project depends on node and npm. The main dependancies are TypeScript, Expr
  
 1. Clone the repo
 ```sh
-git clone git@github.com:VikeLabs/scheduler-back-end.git
+git clone git@github.com:VikeLabs/scheduler-front-end.git
 ```
 
 2. Install NPM packages
