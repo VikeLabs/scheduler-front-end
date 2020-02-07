@@ -1,0 +1,59 @@
+h1 {
+  color: midnightblue;
+}
+
+h3 {
+  color: dimgray;
+}
+
+#divider-container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 14px 0;
+}
+
+.divider-text {
+  margin: 0 6px;
+}
+
+.left-container {
+  background-color: gold;
+  flex-basis: 0%;
+  flex-grow: 1;
+  flex-shrink: 1;
+  position: relative;
+}
+
+.logo {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.main-container {
+  display: flex;
+  height: 100%;
+}
+
+.right-container {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 0%;
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+#signin {
+  display: flex;
+  flex-direction: column;
+}
+
+.signup-container {
+  margin-top: 14px;
+}
+
+.signup-text {
+  font-size: 0.875rem;
+}
