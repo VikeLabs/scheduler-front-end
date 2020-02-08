@@ -37,6 +37,7 @@ const SignUpBtn = styled(Button)({
 });
 
 const StyledCard = styled(Card)({
+  backgroundColor: 'rgb(238,244,251)',
   margin: 'auto',
   maxWidth: '400px',
   padding: '0 38px 24px 38px',
