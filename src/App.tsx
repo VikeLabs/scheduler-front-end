@@ -1,11 +1,20 @@
 import React from 'react';
-import Calendar from 'atoms/Calendar/Calendar';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Home from './pages/Home/Home';
+import Main from './pages/Main/Main';
 
 const App: React.FC = () => {
   return (
-    <div>
-      <Calendar />
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/main">
+          <Main />
+        </Route>
+        <Route path="/">
+          <Home />
+        </Route>
+      </Switch>
+    </Router>
   );
 };
 
