@@ -1,7 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Amplify from 'aws-amplify';
 import * as serviceWorker from './serviceWorker';
 import App from './App';
+
+Amplify.configure({
+  Auth: {
+    region: process.env.REACT_APP_AUTH_REGION,
+    userPoolId: process.env.REACT_APP_AUTH_USER_POOL_ID,
+    userPoolWebClientId: process.env.REACT_APP_AUTH_CLIENT_ID,
+  },
+});
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
