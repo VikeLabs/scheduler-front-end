@@ -2,7 +2,11 @@ import React from 'react';
 import Calendar from './atoms/Calendar/Calendar';
 
 const App: React.FC = () => {
-  return <Calendar />;
+  return (
+    <div>
+      <Calendar />
+    </div>
+  );
 };
 
 export default App;
