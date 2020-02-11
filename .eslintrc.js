@@ -24,6 +24,7 @@ module.exports = {
     '@typescript-eslint/no-var-requires': 'off',
     'react/jsx-filename-extension': 'off',
     'jest/expect-expect': 'off',
+    'react/prop-types': 'off',
   },
   settings: {
     react:  {

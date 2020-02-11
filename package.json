@@ -32,6 +32,8 @@
     "@material-ui/core": "^4.9.0",
     "@material-ui/icons": "^4.5.1",
     "@material-ui/styles": "^4.9.0",
+    "aws-amplify": "^2.2.4",
+    "aws-sdk": "^2.615.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-router-dom": "^5.1.2",
