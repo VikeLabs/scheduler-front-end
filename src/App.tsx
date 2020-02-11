@@ -1,8 +1,8 @@
 import React from 'react';
-import Landing from './pages/Landing';
+import Calendar from './atoms/Calendar/Calendar';
 
 const App: React.FC = () => {
-  return <Landing />;
+  return <Calendar />;
 };
 
 export default App;

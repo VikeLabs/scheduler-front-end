@@ -1,15 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Cognito, { CognitoContext } from './atoms/Congnito';
+import Amplify from 'aws-amplify';
 import * as serviceWorker from './serviceWorker';
 import App from './App';
 
-ReactDOM.render(
-  <CognitoContext.Provider value={new Cognito()}>
-    <App />
-  </CognitoContext.Provider>,
-  document.getElementById('root')
-);
+Amplify.configure({
+  Auth: {
+    region: process.env.REACT_APP_AUTH_REGION,
+    userPoolId: process.env.REACT_APP_AUTH_USER_POOL_ID,
+    userPoolWebClientId: process.env.REACT_APP_AUTH_CLIENT_ID,
+  },
+});
+
+ReactDOM.render(<App />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
