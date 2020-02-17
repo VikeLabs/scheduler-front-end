@@ -1,0 +1,16 @@
+#app-bar {
+  background-color: cornflowerblue !important;
+  color: midnightblue;
+}
+
+.MuiTab-root {
+  min-width: 0 !important;
+}
+
+.MuiTab-wrapper {
+  font-weight: 900 !important;
+}
+
+.Mui-selected {
+  border-bottom: '1px solid #e8e8e8';
+}
