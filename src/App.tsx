@@ -10,8 +10,11 @@ const App: React.FC = () => {
         <Route path="/main">
           <Main />
         </Route>
+        <Route path="/signup">
+          <Home signin={false} />
+        </Route>
         <Route path="/">
-          <Home />
+          <Home signin />
         </Route>
       </Switch>
     </Router>

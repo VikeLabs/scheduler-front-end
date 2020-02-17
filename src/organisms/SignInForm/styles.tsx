@@ -11,10 +11,6 @@ export const ForgotPwdBtn = styled(Button)({
   width: 'fit-content',
 });
 
-export const TextFieldPwd = styled(TextField)({
-  marginTop: '8px',
-});
-
 export const SigninBtn = styled(Button)({
   backgroundColor: 'midnightblue',
   color: 'white',
@@ -32,4 +28,8 @@ export const SigininGoogleBtn = styled(Button)({
 
 export const StyledDivider = styled(Divider)({
   width: '80px',
+});
+
+export const TextFieldPwd = styled(TextField)({
+  marginTop: '8px',
 });

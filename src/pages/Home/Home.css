@@ -6,17 +6,6 @@ h3 {
   color: dimgray;
 }
 
-#divider-container {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  margin: 14px 0;
-}
-
-.divider-text {
-  margin: 0 6px;
-}
-
 .left-container {
   background-color: gold;
   flex-basis: 0%;
@@ -44,11 +33,6 @@ h3 {
   flex-basis: 0%;
   flex-grow: 1;
   flex-shrink: 1;
-}
-
-#signin {
-  display: flex;
-  flex-direction: column;
 }
 
 .signup-container {

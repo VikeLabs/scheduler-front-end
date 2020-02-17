@@ -1,0 +1,10 @@
+.btn-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+
+#signup {
+  display: flex;
+  flex-direction: column;
+}
