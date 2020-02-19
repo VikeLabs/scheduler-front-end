@@ -2,10 +2,10 @@ import React from 'react';
 import AppBar from '@material-ui/core/AppBar/AppBar';
 import Tabs from '@material-ui/core/Tabs/Tabs';
 import Tab from '@material-ui/core/Tab/Tab';
-import Theme from '../../atoms/Theme/Theme';
-import './SemTabs.css';
+import Theme from 'atoms/Theme/Theme';
+import './SemesterTabs.css';
 
-const SemTabs: React.FC<{ defaultVal?: number }> = props => {
+const SemesterTabs: React.FC<{ defaultVal?: number }> = props => {
   const { defaultVal = 0 } = props;
   const [value, setValue] = React.useState(defaultVal);
 
@@ -29,4 +29,4 @@ const SemTabs: React.FC<{ defaultVal?: number }> = props => {
   );
 };
 
-export default SemTabs;
+export default SemesterTabs;

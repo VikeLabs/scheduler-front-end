@@ -1,15 +1,17 @@
 import React from 'react';
-import Toolbar from '@material-ui/core/Toolbar';
-import { StyledNavBar } from './styles';
+import { StyledNavBar, StyledToolbar } from './styles';
+import './Navbar.css';
 
 const NavBar: React.FC = () => {
   return (
     <StyledNavBar position="static">
-      <Toolbar>
-        <h2>VikeLabs / </h2>
+      <StyledToolbar>
+        <a href="https://vikelabs.ca/">
+          <h3>VikeLabs</h3>
+        </a>
         &nbsp;
-        <h3> Scheduler</h3>
-      </Toolbar>
+        <h3> / Scheduler</h3>
+      </StyledToolbar>
     </StyledNavBar>
   );
 };

@@ -1,0 +1,11 @@
+h3 {
+  margin: 0;
+}
+
+a:active {
+  text-decoration: none;
+}
+
+a:hover {
+  color: cornflowerblue;
+}
