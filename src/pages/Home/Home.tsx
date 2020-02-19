@@ -1,9 +1,9 @@
 import React from 'react';
-import SignInForm from '../../organisms/SignInForm/SignInForm';
-import SignUpForm from '../../organisms/SignUpForm/SignUpForm';
-import './Home.css';
-import logo from '../../assets/logo.png';
+import SignInForm from 'organisms/SignInForm/SignInForm';
+import SignUpForm from 'organisms/SignUpForm/SignUpForm';
+import logo from 'assets/logo.png';
 import { SignupBtn, StyledCard } from './styles';
+import './Home.css';
 
 const Home: React.FC<{ signin: boolean }> = props => {
   const { signin } = props;

@@ -1,5 +1,5 @@
 import React from 'react';
-import Calendar from '../../atoms/Calendar/Calendar';
+import Calendar from 'atoms/Calendar/Calendar';
 
 const Main: React.FC = () => {
   return (

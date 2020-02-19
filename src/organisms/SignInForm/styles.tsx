@@ -1,6 +1,5 @@
 import { styled } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import Divider from '@material-ui/core/Divider';
 import TextField from '@material-ui/core/TextField';
 
 export const ForgotPwdBtn = styled(Button)({
@@ -24,10 +23,6 @@ export const SigninBtn = styled(Button)({
 
 export const SigininGoogleBtn = styled(Button)({
   textTransform: 'none',
-});
-
-export const StyledDivider = styled(Divider)({
-  width: '80px',
 });
 
 export const TextFieldPwd = styled(TextField)({

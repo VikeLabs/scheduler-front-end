@@ -21,3 +21,7 @@ export const SignupBtn = styled(Button)({
 export const StyledTextField = styled(TextField)({
   marginBottom: '8px',
 });
+
+export const SiginupGoogleBtn = styled(Button)({
+  textTransform: 'none',
+});

@@ -1,5 +1,6 @@
 import React from 'react';
-import { SigninBtn, SignupBtn, StyledTextField } from './styles';
+import Divider from 'atoms/Divider/Divider';
+import { SigninBtn, SignupBtn, SiginupGoogleBtn, StyledTextField } from './styles';
 import './SignUpForm.css';
 
 const SignUpForm: React.FC = () => {
@@ -16,6 +17,8 @@ const SignUpForm: React.FC = () => {
           Sign up
         </SignupBtn>
       </div>
+      <Divider />
+      <SiginupGoogleBtn href="/main">Sign up with Google</SiginupGoogleBtn>
     </form>
   );
 };

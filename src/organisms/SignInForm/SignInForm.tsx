@@ -1,6 +1,7 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
-import { ForgotPwdBtn, SigninBtn, SigininGoogleBtn, StyledDivider, TextFieldPwd } from './styles';
+import Divider from 'atoms/Divider/Divider';
+import { ForgotPwdBtn, SigninBtn, SigininGoogleBtn, TextFieldPwd } from './styles';
 import './SignInForm.css';
 
 const SignInForm: React.FC = () => {
@@ -12,11 +13,7 @@ const SignInForm: React.FC = () => {
       <SigninBtn href="/main" variant="contained">
         Sign in
       </SigninBtn>
-      <div id="divider-container">
-        <StyledDivider />
-        <span className="divider-text">or</span>
-        <StyledDivider />
-      </div>
+      <Divider />
       <SigininGoogleBtn href="/main">Sign in with Google</SigininGoogleBtn>
     </form>
   );
