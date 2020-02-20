@@ -1,9 +1,10 @@
 import { styled } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
+import Theme from '../../atoms/Theme/Theme';
 
 export const ForgotPwdBtn = styled(Button)({
-  color: 'lightslategrey',
+  color: Theme.gray,
   marginLeft: 'auto',
   marginTop: '2px',
   textTransform: 'none',
@@ -11,13 +12,13 @@ export const ForgotPwdBtn = styled(Button)({
 });
 
 export const SigninBtn = styled(Button)({
-  backgroundColor: 'midnightblue',
-  color: 'white',
+  backgroundColor: Theme.primary,
+  color: Theme.white,
   margin: '8px auto',
   padding: '6px 36px',
   width: 'fit-content',
   '&:hover': {
-    backgroundColor: 'cornflowerblue',
+    backgroundColor: Theme.secondary,
   },
 });
 

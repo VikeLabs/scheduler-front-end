@@ -1,0 +1,20 @@
+h2 {
+  margin: 0;
+}
+
+h3 {
+  color: white;
+}
+
+#left-container {
+  width: 30%;
+}
+
+#main-container {
+  display: flex;
+}
+
+#right-container {
+  padding: 8px;
+  width: 70%;
+}

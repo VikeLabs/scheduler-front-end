@@ -1,0 +1,16 @@
+a {
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: none;
+}
+
+a:hover {
+  color: cornflowerblue;
+}
+
+h3 {
+  color: white !important;
+  margin: 0;
+}
