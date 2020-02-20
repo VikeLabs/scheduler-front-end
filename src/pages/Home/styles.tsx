@@ -3,7 +3,7 @@ import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import Theme from 'atoms/Theme/Theme';
 
-export const SignUpBtn = styled(Button)({
+export const SignupBtn = styled(Button)({
   color: Theme.secondary,
   textTransform: 'none',
 });
