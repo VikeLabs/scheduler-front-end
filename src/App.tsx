@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Home from './pages/Home/Home';
-import Main from './pages/Main/Main';
+import Main from 'pages/Main/Main';
+import Home from 'pages/Home/Home';
 
 const App: React.FC = () => {
   return (
@@ -10,8 +10,11 @@ const App: React.FC = () => {
         <Route path="/main">
           <Main />
         </Route>
+        <Route path="/signup">
+          <Home signin={false} />
+        </Route>
         <Route path="/">
-          <Home />
+          <Home signin />
         </Route>
       </Switch>
     </Router>

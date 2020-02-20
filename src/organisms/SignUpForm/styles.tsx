@@ -2,18 +2,15 @@ import { styled } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 
-export const ForgotPwdBtn = styled(Button)({
-  color: 'lightslategrey',
-  marginLeft: 'auto',
-  marginTop: '2px',
+export const SigninBtn = styled(Button)({
+  color: 'cornflowerblue',
   textTransform: 'none',
-  width: 'fit-content',
 });
 
-export const SigninBtn = styled(Button)({
+export const SignupBtn = styled(Button)({
   backgroundColor: 'midnightblue',
   color: 'white',
-  margin: '8px auto',
+  margin: '8px 0',
   padding: '6px 36px',
   width: 'fit-content',
   '&:hover': {
@@ -21,10 +18,10 @@ export const SigninBtn = styled(Button)({
   },
 });
 
-export const SigininGoogleBtn = styled(Button)({
-  textTransform: 'none',
+export const StyledTextField = styled(TextField)({
+  marginBottom: '8px',
 });
 
-export const TextFieldPwd = styled(TextField)({
-  marginTop: '8px',
+export const SiginupGoogleBtn = styled(Button)({
+  textTransform: 'none',
 });
