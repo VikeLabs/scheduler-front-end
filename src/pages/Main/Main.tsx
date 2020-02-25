@@ -2,7 +2,7 @@ import React from 'react';
 import NavBar from 'molecules/NavBar/NavBar';
 import SemesterTabs from 'molecules/SemesterTabs/SemesterTabs';
 import Calendar from 'atoms/Calendar/Calendar';
-import Dropdown from '../../atoms/Calendar/Dropdown';
+import CourseSelect from 'atoms/CourseSelect/CourseSelect';
 import './Main.css';
 
 const Main: React.FC = () => {
@@ -12,7 +12,7 @@ const Main: React.FC = () => {
       <div id="main-container">
         <div id="left-container">
           <SemesterTabs />
-          <Dropdown />
+          <CourseSelect />
         </div>
         <div id="right-container">
           <Calendar />

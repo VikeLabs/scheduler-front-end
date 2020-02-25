@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import 'isomorphic-fetch';
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
@@ -10,7 +9,7 @@ interface CourseType {
   code: string;
 }
 
-const Dropdown: React.FC = () => {
+const CourseSelect: React.FC = () => {
   const [open, setOpen] = React.useState(false);
   const [options, setOptions] = React.useState<CourseType[]>([]);
   const loading = open && options.length === 0;
@@ -58,7 +57,7 @@ const Dropdown: React.FC = () => {
 
   return (
     <Autocomplete
-      id="asynchronous-dropdown"
+      id="course-select"
       style={{ width: 300 }}
       open={open}
       onOpen={() => {
@@ -92,4 +91,4 @@ const Dropdown: React.FC = () => {
   );
 };
 
-export default Dropdown;
+export default CourseSelect;
