@@ -12,9 +12,9 @@ const Main: React.FC = () => {
       <div id="main-container">
         <div id="left-container">
           <SemesterTabs />
+          <Dropdown />
         </div>
         <div id="right-container">
-          <Dropdown />
           <Calendar />
         </div>
       </div>
