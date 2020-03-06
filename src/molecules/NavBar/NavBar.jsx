@@ -7,10 +7,10 @@ const NavBar = () => {
     <StyledNavBar position="static">
       <StyledToolbar>
         <a href="https://vikelabs.ca/">
-          <h3>VikeLabs</h3>
+          <h3 className="header">VikeLabs</h3>
         </a>
         &nbsp;
-        <h3> / Scheduler</h3>
+        <h3 className="header"> / Scheduler</h3>
       </StyledToolbar>
     </StyledNavBar>
   );
