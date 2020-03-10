@@ -8,8 +8,8 @@ class SignUpForm extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      firstName: null,
-      lastName: null,
+      firstName: '',
+      lastName: '',
       email: null,
       pw1: null,
       pw2: null,
@@ -26,6 +26,34 @@ class SignUpForm extends PureComponent {
 
   setFieldError = (name, value) => {
     this.setState(prev => ({ error: { ...prev.error, [name]: value } }));
+  };
+
+  validateFirstName = async () => {
+    const { firstName } = this.state;
+    try {
+      await yup
+        .string()
+        .min(1, 'A first name is required')
+        .required('A first name is required')
+        .validate(firstName);
+      this.setFieldError('firstName', false);
+    } catch (error) {
+      this.setFieldError('firstName', error.message);
+    }
+  };
+
+  validateLastName = async () => {
+    const { lastName } = this.state;
+    try {
+      await yup
+        .string()
+        .min(1, 'A last name is required')
+        .required('A last name is required')
+        .validate(lastName);
+      this.setFieldError('lastName', false);
+    } catch (error) {
+      this.setFieldError('lastName', error.message);
+    }
   };
 
   validateEmail = async () => {
@@ -80,13 +108,19 @@ class SignUpForm extends PureComponent {
           id="firstName"
           label="First Name"
           autoComplete="given-name"
+          error={!!error.firstName}
+          helperText={error.firstName}
           onChange={this.handleChange('firstName')}
+          onBlur={this.validateFirstName}
         />
         <StyledTextField
           id="lastName"
           label="Last Name"
           autoComplete="family-name"
+          error={!!error.lastName}
+          helperText={error.lastName}
           onChange={this.handleChange('lastName')}
+          onBlur={this.validateLastName}
         />
         <StyledTextField
           id="email"
