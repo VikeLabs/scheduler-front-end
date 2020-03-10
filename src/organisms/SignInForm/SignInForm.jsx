@@ -14,7 +14,7 @@ class SignInForm extends PureComponent {
   }
 
   handleChange = name => event => {
-    this.state({ [name]: event.target.value });
+    this.setState({ [name]: event.target.value });
   };
 
   render() {
