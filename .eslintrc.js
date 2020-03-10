@@ -1,49 +1,41 @@
-module.exports = {
-  parser:  '@typescript-eslint/parser',  // Specifies the ESLint parser
+module.exports =  {
+  parser:  'babel-eslint',  // Specifies the ESLint parser
   extends:  [
-    'airbnb',  // Uses the recommended rules from airbnb
-    'plugin:jest/recommended', // USe the recommended rules from jest 
+    'airbnb',
     'plugin:react/recommended',  // Uses the recommended rules from @eslint-plugin-react
-    'plugin:@typescript-eslint/recommended',  // Uses the recommended rules from @typescript-eslint/eslint-plugin
     'plugin:prettier/recommended',  // Enables eslint-plugin-prettier and displays prettier errors as ESLint errors. Make sure this is always the last configuration in the extends array.
   ],
-  parserOptions: {
+  plugins: [
+    'jest'
+  ],
+  parserOptions:  {
   ecmaVersion:  2018,  // Allows for the parsing of modern ECMAScript features
   sourceType:  'module',  // Allows for the use of imports
   ecmaFeatures:  {
     jsx:  true,  // Allows for the parsing of JSX
   },
   },
-  rules: {
+  rules:  {
     'no-console': 'error',
     'no-alert': 'error',
     'require-jsdoc': 'error',
-    '@typescript-eslint/explicit-function-return-type': 'off',
-    '@typescript-eslint/interface-name-prefix': 'off',
-    '@typescript-eslint/no-explicit-any': 'off',
-    '@typescript-eslint/no-var-requires': 'off',
-    'react/jsx-filename-extension': 'off',
-    'jest/expect-expect': 'off',
-    'react/prop-types': 'off',
+    'react/jsx-wrap-multilines': 'off',
+    'react/static-property-placement': 'off', // Allows PropTypes to be at the top of the file 
+    'react/jsx-props-no-spreading': 'off',
   },
-  settings: {
+  settings:  {
     react:  {
       version:  'detect',  // Tells eslint-plugin-react to automatically detect the version of React to use
     },
-    'import/extensions': ['.js','.jsx','.ts','.tsx'],
-    'import/parsers': {
-      '@typescript-eslint/parser': ['.ts','.tsx']
-    },
     'import/resolver': {
-      'node': {
-        'extensions': ['.js','.jsx','.ts','.tsx'],
-        'paths': ['src']
+      node: {
+        paths: ['src']
       }
-    },
+    }
   },
   env: {
-    'browser': true,
-    'node': true,
-    'jest/globals': true,
+    browser: true,
+    node: true,
+    jest: true,
   }
 };

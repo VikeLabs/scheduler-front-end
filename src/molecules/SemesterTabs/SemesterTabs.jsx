@@ -1,15 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar/AppBar';
 import Tabs from '@material-ui/core/Tabs/Tabs';
 import Tab from '@material-ui/core/Tab/Tab';
 import Theme from 'atoms/Theme/Theme';
 import './SemesterTabs.css';
 
-const SemesterTabs: React.FC<{ defaultVal?: number }> = props => {
-  const { defaultVal = 0 } = props;
+const SemesterTabs = props => {
+  const { defaultVal } = props;
   const [value, setValue] = React.useState(defaultVal);
 
-  const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
+  const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
@@ -27,6 +28,14 @@ const SemesterTabs: React.FC<{ defaultVal?: number }> = props => {
       </Tabs>
     </AppBar>
   );
+};
+
+SemesterTabs.propTypes = {
+  defaultVal: PropTypes.number,
+};
+
+SemesterTabs.defaultProps = {
+  defaultVal: 0,
 };
 
 export default SemesterTabs;

@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Main from 'pages/Main/Main';
 import Home from 'pages/Home/Home';
 
-const App: React.FC = () => {
+const App = () => {
   return (
     <Router>
       <Switch>

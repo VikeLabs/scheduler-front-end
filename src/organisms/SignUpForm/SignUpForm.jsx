@@ -3,7 +3,7 @@ import Divider from 'atoms/Divider/Divider';
 import { SigninBtn, SignupBtn, SiginupGoogleBtn, StyledTextField } from './styles';
 import './SignUpForm.css';
 
-const SignUpForm: React.FC = () => {
+const SignUpForm = () => {
   return (
     <form id="signup">
       <StyledTextField id="firstName" label="First Name" autoComplete="given-name" />
