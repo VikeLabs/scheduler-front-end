@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import * as yup from 'yup';
+import { signUpSchema } from 'atoms/ValidationSchemas';
 import Divider from 'atoms/Divider/Divider';
 import { SigninBtn, SignupBtn, SiginupGoogleBtn, StyledTextField } from './styles';
 import './SignUpForm.css';
@@ -31,12 +32,8 @@ class SignUpForm extends PureComponent {
   validateFirstName = async () => {
     const { firstName } = this.state;
     try {
-      await yup
-        .string()
-        .min(1, 'A first name is required')
-        .required('A first name is required')
-        .validate(firstName);
-      this.setFieldError('firstName', false);
+      await yup.reach(signUpSchema, 'firstName').validate(firstName);
+      this.setFieldError('firstName', null);
     } catch (error) {
       this.setFieldError('firstName', error.message);
     }
@@ -45,12 +42,8 @@ class SignUpForm extends PureComponent {
   validateLastName = async () => {
     const { lastName } = this.state;
     try {
-      await yup
-        .string()
-        .min(1, 'A last name is required')
-        .required('A last name is required')
-        .validate(lastName);
-      this.setFieldError('lastName', false);
+      await yup.reach(signUpSchema, 'lastName').validate(lastName);
+      this.setFieldError('lastName', null);
     } catch (error) {
       this.setFieldError('lastName', error.message);
     }
@@ -60,11 +53,7 @@ class SignUpForm extends PureComponent {
     const { email } = this.state;
     if (!email) return;
     try {
-      await yup
-        .string()
-        .email('This must be a valid email')
-        .required('An email is required')
-        .validate(email);
+      await yup.reach(signUpSchema, 'email').validate(email);
       this.setFieldError('email', null);
     } catch (error) {
       this.setFieldError('email', error.message);
@@ -76,11 +65,7 @@ class SignUpForm extends PureComponent {
     if (!pw1) return;
     // Check the password meets the 8 character requirement
     try {
-      await yup
-        .string()
-        .min(8, 'Password must be at least 8 charaters long')
-        .required('A password is required')
-        .validate(pw1);
+      await yup.reach(signUpSchema, 'password').validate(pw1);
       this.setFieldError('pw1', null);
     } catch (error) {
       this.setFieldError('pw1', error.message);
@@ -89,14 +74,16 @@ class SignUpForm extends PureComponent {
     if (!pw2) return;
     // Check that the passwords match once both entered
     try {
-      await yup
-        .string()
-        .matches(new RegExp(pw1), 'Passwords must match')
-        .required('Please confirm your password')
-        .validate(pw2);
+      // Need to provide both passwords inorder to confirm match
+      await signUpSchema.validate({ password: pw1, confirmPassword: pw2 });
       this.setFieldError('pw2', null);
     } catch (error) {
-      this.setFieldError('pw2', error.message);
+      const { message } = error;
+      // Validation the entire schema can return other errors, only set the error if
+      // it is for the confirmPassword field
+      if (message.includes('match') || message.includes('confirm')) {
+        this.setFieldError('pw2', error.message);
+      }
     }
   };
 
