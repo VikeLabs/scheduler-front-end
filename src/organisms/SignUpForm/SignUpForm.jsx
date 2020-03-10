@@ -1,26 +1,133 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
+import * as yup from 'yup';
 import Divider from 'atoms/Divider/Divider';
 import { SigninBtn, SignupBtn, SiginupGoogleBtn, StyledTextField } from './styles';
 import './SignUpForm.css';
 
-const SignUpForm = () => {
-  return (
-    <form id="signup">
-      <StyledTextField id="firstName" label="First Name" autoComplete="given-name" />
-      <StyledTextField id="lastName" label="Last Name" autoComplete="family-name" />
-      <StyledTextField id="email" label="Email" autoComplete="username" />
-      <StyledTextField id="password" label="Password" type="password" autoComplete="current-password" />
-      <StyledTextField id="confirm-password" label="Confirm Password" type="password" autoComplete="current-password" />
-      <div className="btn-container">
-        <SigninBtn href="/">Sign in instead</SigninBtn>
-        <SignupBtn href="/main" variant="contained">
-          Sign up
-        </SignupBtn>
-      </div>
-      <Divider />
-      <SiginupGoogleBtn href="/main">Sign up with Google</SiginupGoogleBtn>
-    </form>
-  );
-};
+class SignUpForm extends PureComponent {
+  constructor(props) {
+    super(props);
+    this.state = {
+      firstName: null,
+      lastName: null,
+      email: null,
+      pw1: null,
+      pw2: null,
+      error: {
+        email: false,
+        pw1: null,
+      },
+    };
+  }
+
+  handleChange = name => event => {
+    this.setState({ [name]: event.target.value });
+  };
+
+  setFieldError = (name, value) => {
+    this.setState(prev => ({ error: { ...prev.error, [name]: value } }));
+  };
+
+  validateEmail = async () => {
+    const { email } = this.state;
+    if (!email) return;
+    try {
+      await yup
+        .string()
+        .email('This must be a valid email')
+        .required('An email is required')
+        .validate(email);
+      this.setFieldError('email', null);
+    } catch (error) {
+      this.setFieldError('email', error.message);
+    }
+  };
+
+  validatePasswords = async () => {
+    const { pw1, pw2 } = this.state;
+    if (!pw1) return;
+    // Check the password meets the 8 character requirement
+    try {
+      await yup
+        .string()
+        .min(8, 'Password must be at least 8 charaters long')
+        .required('A password is required')
+        .validate(pw1);
+      this.setFieldError('pw1', null);
+    } catch (error) {
+      this.setFieldError('pw1', error.message);
+    }
+
+    if (!pw2) return;
+    // Check that the passwords match once both entered
+    try {
+      await yup
+        .string()
+        .matches(new RegExp(pw1), 'Passwords must match')
+        .required('Please confirm your password')
+        .validate(pw2);
+      this.setFieldError('pw2', null);
+    } catch (error) {
+      this.setFieldError('pw2', error.message);
+    }
+  };
+
+  render() {
+    const { error } = this.state;
+    return (
+      <form id="signup">
+        <StyledTextField
+          id="firstName"
+          label="First Name"
+          autoComplete="given-name"
+          onChange={this.handleChange('firstName')}
+        />
+        <StyledTextField
+          id="lastName"
+          label="Last Name"
+          autoComplete="family-name"
+          onChange={this.handleChange('lastName')}
+        />
+        <StyledTextField
+          id="email"
+          label="Email"
+          autoComplete="username"
+          error={!!error.email}
+          helperText={error.email}
+          onChange={this.handleChange('email')}
+          onBlur={this.validateEmail}
+        />
+        <StyledTextField
+          id="password"
+          label="Password"
+          type="password"
+          autoComplete="current-password"
+          error={!!error.pw1}
+          helperText={error.pw1}
+          onChange={this.handleChange('pw1')}
+          onBlur={this.validatePasswords}
+        />
+        <StyledTextField
+          id="confirm-password"
+          label="Confirm Password"
+          type="password"
+          autoComplete="current-password"
+          error={!!error.pw2}
+          helperText={error.pw2}
+          onChange={this.handleChange('pw2')}
+          onBlur={this.validatePasswords}
+        />
+        <div className="btn-container">
+          <SigninBtn href="/">Sign in instead</SigninBtn>
+          <SignupBtn href="/main" variant="contained">
+            Sign up
+          </SignupBtn>
+        </div>
+        <Divider />
+        <SiginupGoogleBtn href="/main">Sign up with Google</SiginupGoogleBtn>
+      </form>
+    );
+  }
+}
 
 export default SignUpForm;
