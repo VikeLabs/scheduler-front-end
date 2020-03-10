@@ -4,7 +4,7 @@ import Divider from 'atoms/Divider/Divider';
 import { ForgotPwdBtn, SigninBtn, SigininGoogleBtn, TextFieldPwd } from './styles';
 import './SignInForm.css';
 
-const SignInForm: React.FC = () => {
+const SignInForm = () => {
   return (
     <form id="signin">
       <TextField id="email" label="Email" autoComplete="username" />
