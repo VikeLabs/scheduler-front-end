@@ -21,7 +21,8 @@ module.exports =  {
     'require-jsdoc': 'error',
     'react/jsx-wrap-multilines': 'off',
     'react/static-property-placement': 'off', // Allows PropTypes to be at the top of the file 
-    'react/jsx-props-no-spreading': 'off',
+    'react/jsx-props-no-spreading': 'off', 
+    'react/no-unused-state': 'off', // allows for this.setState({ [key]: value })
   },
   settings:  {
     react:  {
