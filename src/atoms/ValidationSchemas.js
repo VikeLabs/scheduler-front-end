@@ -19,8 +19,8 @@ const signUpSchema = yup.object().shape({
     .required('A password is required'),
   confirmPassword: yup
     .string()
-    .oneOf([yup.ref('password'), null], 'Passwords must match'),
-  // .required('Please confirm your password'),
+    .oneOf([yup.ref('password'), null], 'Passwords must match')
+    .required('Please confirm your password'),
 });
 
 // eslint-disable-next-line import/prefer-default-export

@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { Auth } from 'aws-amplify';
 import * as yup from 'yup';
 import { signUpSchema } from 'atoms/ValidationSchemas';
 import Divider from 'atoms/Divider/Divider';
@@ -14,10 +15,7 @@ class SignUpForm extends PureComponent {
       email: null,
       pw1: null,
       pw2: null,
-      error: {
-        email: false,
-        pw1: null,
-      },
+      error: {},
     };
   }
 
@@ -33,7 +31,7 @@ class SignUpForm extends PureComponent {
     const { firstName } = this.state;
     try {
       await yup.reach(signUpSchema, 'firstName').validate(firstName);
-      this.setFieldError('firstName', null);
+      this.setFieldError('firstName', undefined);
     } catch (error) {
       this.setFieldError('firstName', error.message);
     }
@@ -43,7 +41,7 @@ class SignUpForm extends PureComponent {
     const { lastName } = this.state;
     try {
       await yup.reach(signUpSchema, 'lastName').validate(lastName);
-      this.setFieldError('lastName', null);
+      this.setFieldError('lastName', undefined);
     } catch (error) {
       this.setFieldError('lastName', error.message);
     }
@@ -54,7 +52,7 @@ class SignUpForm extends PureComponent {
     if (!email) return;
     try {
       await yup.reach(signUpSchema, 'email').validate(email);
-      this.setFieldError('email', null);
+      this.setFieldError('email', undefined);
     } catch (error) {
       this.setFieldError('email', error.message);
     }
@@ -66,7 +64,7 @@ class SignUpForm extends PureComponent {
     // Check the password meets the 8 character requirement
     try {
       await yup.reach(signUpSchema, 'password').validate(pw1);
-      this.setFieldError('pw1', null);
+      this.setFieldError('pw1', undefined);
     } catch (error) {
       this.setFieldError('pw1', error.message);
     }
@@ -76,21 +74,49 @@ class SignUpForm extends PureComponent {
     try {
       // Need to provide both passwords inorder to confirm match
       await signUpSchema.validate({ password: pw1, confirmPassword: pw2 });
-      this.setFieldError('pw2', null);
+      this.setFieldError('pw2', undefined);
     } catch (error) {
       const { message } = error;
       // Validation the entire schema can return other errors, only set the error if
       // it is for the confirmPassword field
       if (message.includes('match') || message.includes('confirm')) {
         this.setFieldError('pw2', error.message);
+      } else {
+        this.setFieldError('pw2', undefined);
       }
+    }
+  };
+
+  isValid = () => {
+    const { email, pw1, pw2, firstName, lastName } = this.state;
+    return signUpSchema.isValidSync({
+      firstName,
+      lastName,
+      email,
+      password: pw1,
+      confirmPassword: pw2,
+    });
+  };
+
+  handleSubmit = async event => {
+    const { firstName, lastName, email, pw1 } = this.state;
+    event.preventDefault();
+    try {
+      const data = await Auth.signUp({
+        username: email,
+        password: pw1,
+        attributes: { email, given_name: firstName, family_name: lastName },
+      });
+      console.log(data);
+    } catch (error) {
+      console.log(error);
     }
   };
 
   render() {
     const { error } = this.state;
     return (
-      <form id="signup">
+      <form id="signup" onSubmit={this.handleSubmit}>
         <StyledTextField
           id="firstName"
           label="First Name"
@@ -140,7 +166,7 @@ class SignUpForm extends PureComponent {
         />
         <div className="btn-container">
           <SigninBtn href="/">Sign in instead</SigninBtn>
-          <SignupBtn href="/main" variant="contained">
+          <SignupBtn type="submit" variant="contained" disabled={!this.isValid()}>
             Sign up
           </SignupBtn>
         </div>
