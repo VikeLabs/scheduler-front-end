@@ -107,8 +107,10 @@ class SignUpForm extends PureComponent {
         password: pw1,
         attributes: { email, given_name: firstName, family_name: lastName },
       });
+      // TODO Auth.confirmSignUp
+      // TODO Auth.resendSignUp
     } catch (error) {
-      console.log(error);
+      // TODO display error
     }
   };
 
