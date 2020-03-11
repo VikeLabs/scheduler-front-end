@@ -102,12 +102,11 @@ class SignUpForm extends PureComponent {
     const { firstName, lastName, email, pw1 } = this.state;
     event.preventDefault();
     try {
-      const data = await Auth.signUp({
+      await Auth.signUp({
         username: email,
         password: pw1,
         attributes: { email, given_name: firstName, family_name: lastName },
       });
-      console.log(data);
     } catch (error) {
       console.log(error);
     }
