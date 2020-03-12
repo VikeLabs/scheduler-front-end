@@ -33,6 +33,7 @@
     "@material-ui/icons": "^4.9.1",
     "@material-ui/styles": "^4.9.0",
     "aws-amplify": "^2.2.6",
+    "prop-types": "^15.7.2",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-router-dom": "^5.1.2",
@@ -55,7 +56,6 @@
     "eslint-plugin-react-hooks": "^1.7.0",
     "jest": "^24.9.0",
     "prettier": "^1.19.1",
-    "prettier-eslint": "^9.0.1",
-    "prop-types": "^15.7.2"
+    "prettier-eslint": "^9.0.1"
   }
 }
