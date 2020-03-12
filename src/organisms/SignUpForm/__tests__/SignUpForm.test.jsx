@@ -81,7 +81,8 @@ describe('<SignUpForm />', () => {
     wrapper.find('#confirm-password').simulate('change', { target: { value: password } });
 
     // submit
-    wrapper.find('form').simulate('submit');
+    const event = { preventDefault: jest.fn() };
+    wrapper.find('form').simulate('submit', event);
     expect(spy).toBeCalled();
     expect(signUp).toHaveBeenNthCalledWith(1, {
       username: email,
