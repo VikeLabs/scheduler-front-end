@@ -4,6 +4,7 @@ import AppBar from '@material-ui/core/AppBar/AppBar';
 import Tabs from '@material-ui/core/Tabs/Tabs';
 import Tab from '@material-ui/core/Tab/Tab';
 import Theme from 'atoms/Theme/Theme';
+import SemesterPanel from 'molecules/SemesterPanel/SemesterPanel';
 import './SemesterTabs.css';
 
 const SemesterTabs = props => {
@@ -15,18 +16,23 @@ const SemesterTabs = props => {
   };
 
   return (
-    <AppBar id="app-bar" position="static">
-      <Tabs
-        value={value}
-        onChange={(event, newValue) => handleChange(event, newValue)}
-        variant="fullWidth"
-        TabIndicatorProps={{ style: { background: Theme.primary } }}
-      >
-        <Tab id="0" label="Fall" />
-        <Tab id="1" label="Spring" />
-        <Tab id="2" label="Summer" />
-      </Tabs>
-    </AppBar>
+    <>
+      <AppBar id="app-bar" position="static">
+        <Tabs
+          value={value}
+          onChange={handleChange}
+          variant="fullWidth"
+          TabIndicatorProps={{ style: { background: Theme.primary } }}
+        >
+          <Tab id="0" label="Fall" />
+          <Tab id="1" label="Spring" />
+          <Tab id="2" label="Summer" />
+        </Tabs>
+      </AppBar>
+      <SemesterPanel value={value} index={0} />
+      <SemesterPanel value={value} index={1} />
+      <SemesterPanel value={value} index={2} />
+    </>
   );
 };
 
