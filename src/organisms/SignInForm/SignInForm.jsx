@@ -19,9 +19,8 @@ class SignInForm extends PureComponent {
   };
 
   handleSubmit = async event => {
-    event.preventDefault();
-
     const { email, password } = this.state;
+    event.preventDefault();
     try {
       await Auth.signIn(email, password);
     } catch (error) {
