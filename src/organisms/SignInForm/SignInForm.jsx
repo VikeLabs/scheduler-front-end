@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { Auth } from 'aws-amplify';
 import TextField from '@material-ui/core/TextField';
 import Divider from 'atoms/Divider/Divider';
 import { ForgotPwdBtn, SigninBtn, SigininGoogleBtn, TextFieldPwd } from './styles';
@@ -17,9 +18,26 @@ class SignInForm extends PureComponent {
     this.setState({ [name]: event.target.value });
   };
 
+  handleSubmit = async event => {
+    const { email, password } = this.state;
+    event.preventDefault();
+    try {
+      await Auth.signIn(email, password);
+    } catch (error) {
+      if (error.code === 'UserNotConfirmedException') {
+        // TODO resend confirmation email
+      } else if (
+        error.code === 'NotAuthorizedException' ||
+        error.code === 'UserNotFoundException'
+      ) {
+        // TODO display error
+      }
+    }
+  };
+
   render() {
     return (
-      <form id="signin">
+      <form id="signin" onSubmit={this.handleSubmit}>
         <TextField
           id="email"
           label="Email"
@@ -34,7 +52,7 @@ class SignInForm extends PureComponent {
           onChange={this.handleChange('password')}
         />
         <ForgotPwdBtn size="small">Forgot password?</ForgotPwdBtn>
-        <SigninBtn href="/main" variant="contained">
+        <SigninBtn type="submit" variant="contained">
           Sign in
         </SigninBtn>
         <Divider />
