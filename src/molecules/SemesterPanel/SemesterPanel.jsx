@@ -3,13 +3,18 @@ import PropTypes from 'prop-types';
 import CoursePanel from 'molecules/CoursePanel/CoursePanel';
 
 const SemesterPanel = props => {
-  const { value, index } = props;
+  const { value, index, semester } = props;
 
   if (value !== index) {
     return <></>;
   }
 
-  return <CoursePanel />;
+  return (
+    <>
+      {semester}
+      <CoursePanel />
+    </>
+  );
 };
 
 export default SemesterPanel;
@@ -17,4 +22,5 @@ export default SemesterPanel;
 SemesterPanel.propTypes = {
   value: PropTypes.number.isRequired,
   index: PropTypes.number.isRequired,
+  semester: PropTypes.number.isRequired,
 };

@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 import AppBar from '@material-ui/core/AppBar/AppBar';
 import Tabs from '@material-ui/core/Tabs/Tabs';
 import Tab from '@material-ui/core/Tab/Tab';
@@ -9,10 +10,43 @@ import './SemesterTabs.css';
 
 const SemesterTabs = props => {
   const { defaultVal } = props;
-  const [value, setValue] = React.useState(defaultVal);
+  const [value, setValue] = useState(defaultVal);
+  const [semesters, setSemesters] = useState();
+
+  const getSemesters = async () => {
+    try {
+      const response = await axios.get('https://uvic-scheduler-server.herokuapp.com/semesters');
+      setSemesters(response.data);
+    } catch (error) {
+      // TODO handle this
+    }
+  };
+
+  // get the semesters when the component mounts
+  useEffect(() => {
+    getSemesters();
+  }, []);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
+  };
+
+  const renderTabs = () => {
+    if (!semesters) {
+      return undefined;
+    }
+    return semesters.map((semester, index) => (
+      <Tab id={`tab-${index}`} key={`tab-${semester.term}`} label={<span className="tab">{semester.title}</span>} />
+    ));
+  };
+
+  const renderPanels = () => {
+    if (!semesters) {
+      return undefined;
+    }
+    return semesters.map((semester, index) => (
+      <SemesterPanel key={`panel-${semester.term}`} value={value} index={index} semester={semester.term} />
+    ));
   };
 
   return (
@@ -24,16 +58,10 @@ const SemesterTabs = props => {
           variant="fullWidth"
           TabIndicatorProps={{ style: { background: Theme.primary } }}
         >
-          <Tab id="0" label="Fall" />
-          <Tab id="1" label="Spring" />
-          <Tab id="2" label="Summer" />
+          {renderTabs()}
         </Tabs>
       </AppBar>
-      <div className="panel-container">
-        <SemesterPanel value={value} index={0} />
-        <SemesterPanel value={value} index={1} />
-        <SemesterPanel value={value} index={2} />
-      </div>
+      <div className="panel-container">{renderPanels()}</div>
     </>
   );
 };
