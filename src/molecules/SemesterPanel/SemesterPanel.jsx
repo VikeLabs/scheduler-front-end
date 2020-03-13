@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import CoursePanel from 'molecules/CoursePanel/CoursePanel';
 
 const SemesterPanel = props => {
   const { value, index } = props;
@@ -8,7 +9,7 @@ const SemesterPanel = props => {
     return <></>;
   }
 
-  return <div>{value}</div>;
+  return <CoursePanel />;
 };
 
 export default SemesterPanel;
