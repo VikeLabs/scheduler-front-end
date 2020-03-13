@@ -14,3 +14,7 @@
 .Mui-selected {
   border-bottom: '1px solid #e8e8e8';
 }
+
+.panel-container {
+  padding: 8px;
+}

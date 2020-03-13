@@ -29,9 +29,11 @@ const SemesterTabs = props => {
           <Tab id="2" label="Summer" />
         </Tabs>
       </AppBar>
-      <SemesterPanel value={value} index={0} />
-      <SemesterPanel value={value} index={1} />
-      <SemesterPanel value={value} index={2} />
+      <div className="panel-container">
+        <SemesterPanel value={value} index={0} />
+        <SemesterPanel value={value} index={1} />
+        <SemesterPanel value={value} index={2} />
+      </div>
     </>
   );
 };
