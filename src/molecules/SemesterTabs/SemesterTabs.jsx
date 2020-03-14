@@ -45,7 +45,7 @@ const SemesterTabs = props => {
       return undefined;
     }
     return semesters.map((semester, index) => (
-      <SemesterPanel key={`panel-${semester.term}`} value={value} index={index} semester={semester.term} />
+      <SemesterPanel key={`panel-${semester.term}`} value={value} index={index} term={semester.term} />
     ));
   };
 
