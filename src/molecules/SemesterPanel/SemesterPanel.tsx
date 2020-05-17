@@ -2,7 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import CoursePanel from 'molecules/CoursePanel/CoursePanel';
 
-const SemesterPanel = props => {
+const SemesterPanel: React.FC<{
+  value: number;
+  index: number;
+  semester: number;
+}> = props => {
   const { value, index, semester } = props;
 
   if (value !== index) {
