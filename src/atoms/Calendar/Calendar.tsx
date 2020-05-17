@@ -6,7 +6,7 @@ import '@fullcalendar/core/main.css';
 import '@fullcalendar/timegrid/main.css';
 import './calendar.css';
 
-const Calendar = () => {
+const Calendar: React.FC = () => {
   const start = new Date();
   const end = new Date();
   end.setHours(end.getHours() + 1);

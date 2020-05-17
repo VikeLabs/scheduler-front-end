@@ -2,7 +2,7 @@ import React from 'react';
 import { StyledDivider } from './styles';
 import './Divider.css';
 
-const Divider = () => {
+const Divider: React.FC = () => {
   return (
     <div id="divider-container">
       <StyledDivider />

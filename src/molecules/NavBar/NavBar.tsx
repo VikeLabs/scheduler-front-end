@@ -2,7 +2,7 @@ import React from 'react';
 import { StyledNavBar, StyledToolbar } from './styles';
 import './Navbar.css';
 
-const NavBar = () => {
+const NavBar: React.FC = () => {
   return (
     <StyledNavBar position="static">
       <StyledToolbar>

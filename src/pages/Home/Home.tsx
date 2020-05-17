@@ -1,12 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import SignInForm from 'organisms/SignInForm/SignInForm';
 import SignUpForm from 'organisms/SignUpForm/SignUpForm';
 import logo from 'assets/logo.png';
 import { SignupBtn, StyledCard } from './styles';
 import './Home.css';
 
-const Home = props => {
+const Home: React.FC<{ signin: boolean }> = props => {
   const { signin } = props;
   const signinForm = (
     <>
@@ -36,10 +35,6 @@ const Home = props => {
       </div>
     </div>
   );
-};
-
-Home.propTypes = {
-  signin: PropTypes.bool.isRequired,
 };
 
 export default Home;

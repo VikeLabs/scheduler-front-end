@@ -4,7 +4,7 @@ import SemesterTabs from 'molecules/SemesterTabs/SemesterTabs';
 import Calendar from 'atoms/Calendar/Calendar';
 import './Main.css';
 
-const Main = () => {
+const Main: React.FC = () => {
   return (
     <>
       <NavBar />
