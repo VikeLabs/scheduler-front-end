@@ -23,7 +23,7 @@ const Home = props => {
     </>
   );
   return (
-    <div className="main-container">
+    <main className="main-container">
       <div className="left-container">
         <img src={logo} className="logo" alt="" />
       </div>
@@ -34,7 +34,7 @@ const Home = props => {
           {signin ? signinForm : signupForm}
         </StyledCard>
       </div>
-    </div>
+    </main>
   );
 };
 
