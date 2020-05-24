@@ -1,27 +1,29 @@
 import { styled } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-
-export const SigninBtn = styled(Button)({
-  color: 'cornflowerblue',
-  textTransform: 'none',
-});
+import Theme from '../../atoms/Theme/Theme';
 
 export const SignupBtn = styled(Button)({
-  backgroundColor: 'midnightblue',
-  color: 'white',
-  margin: '8px 0',
-  padding: '6px 36px',
-  width: 'fit-content',
+  justifyContent: 'center',
+  marginTop: '1.25rem',
+  backgroundColor: Theme.primary,
+  color: Theme.white,
   '&:hover': {
-    backgroundColor: 'cornflowerblue',
+    backgroundColor: Theme.secondary,
+    color: Theme.white,
   },
 });
 
-export const StyledTextField = styled(TextField)({
-  marginBottom: '8px',
+export const SigninBtn = styled(Button)({
+  color: Theme.secondary,
+  textTransform: 'none',
 });
 
 export const SiginupGoogleBtn = styled(Button)({
+  color: Theme.secondary,
   textTransform: 'none',
+});
+
+export const StyledTextField = styled(TextField)({
+  marginTop: '0.5rem',
 });
