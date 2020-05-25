@@ -9,7 +9,7 @@ const SignInForm = () => {
       <form id="signin">
         <StyledTextField id="email" label="Email" type="email" autoComplete="username" />
         <StyledTextField id="password" label="Password" type="password" autoComplete="current-password" />
-        <ForgotPwdBtn href="/" size="small">Forgot password?</ForgotPwdBtn>
+        <ForgotPwdBtn href="/" size="small">Forgot your password?</ForgotPwdBtn>
         <SigninBtn variant="contained">
           Sign in
         </SigninBtn>
@@ -18,7 +18,7 @@ const SignInForm = () => {
       <SigininGoogleBtn href="/">Sign in with Google</SigininGoogleBtn>
       <div className="signup-container">
         <p className="signup-text">
-          New to Schedule Courses? <SignupBtn href="/signup">Create Account</SignupBtn>
+          New to Schedule Courses? <SignupBtn href="/signup">Create an Account</SignupBtn>
         </p>
       </div>
     </section>

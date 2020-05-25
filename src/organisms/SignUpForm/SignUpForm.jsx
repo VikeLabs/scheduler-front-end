@@ -20,7 +20,7 @@ const SignUpForm = () => {
       <SiginupGoogleBtn href="/">Sign up with Google</SiginupGoogleBtn>
       <div className="signin-container">
         <p className="signin-text">
-          Already have an account? <SigninBtn href="/">Sign in instead</SigninBtn>
+          Already have an account? <SigninBtn href="/">Sign in</SigninBtn>
         </p>
       </div>
     </section>
