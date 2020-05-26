@@ -1,21 +1,27 @@
 import React from 'react';
-import TextField from '@material-ui/core/TextField';
 import Divider from 'atoms/Divider/Divider';
-import { ForgotPwdBtn, SigninBtn, SigininGoogleBtn, TextFieldPwd } from './styles';
+import { ForgotPwdBtn, SigninBtn, SignupBtn, SigininGoogleBtn, StyledTextField } from './styles';
 import './SignInForm.css';
 
 const SignInForm = () => {
   return (
-    <form id="signin">
-      <TextField id="email" label="Email" autoComplete="username" />
-      <TextFieldPwd id="password" label="Password" type="password" autoComplete="current-password" />
-      <ForgotPwdBtn size="small">Forgot password?</ForgotPwdBtn>
-      <SigninBtn href="/main" variant="contained">
-        Sign in
-      </SigninBtn>
+    <section className="signin">
+      <form id="signin">
+        <StyledTextField id="email" label="Email" type="email" autoComplete="username" />
+        <StyledTextField id="password" label="Password" type="password" autoComplete="current-password" />
+        <ForgotPwdBtn href="/" size="small">Forgot your password?</ForgotPwdBtn>
+        <SigninBtn variant="contained">
+          Sign in
+        </SigninBtn>
+      </form>
       <Divider />
-      <SigininGoogleBtn href="/main">Sign in with Google</SigininGoogleBtn>
-    </form>
+      <SigininGoogleBtn href="/">Sign in with Google</SigininGoogleBtn>
+      <div className="signup-container">
+        <p className="signup-text">
+          New to Schedule Courses? <SignupBtn href="/signup">Create an Account</SignupBtn>
+        </p>
+      </div>
+    </section>
   );
 };
 

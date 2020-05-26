@@ -1,44 +1,35 @@
-h1 {
-  color: midnightblue;
+.home-page {
+  min-height: 100vh;
 }
 
-h3 {
-  color: dimgray;
+.home-page .left-section {
+  background-color: #ffd700;
+  display: grid;
+  justify-content: center;
+  vertical-align: middle;
 }
 
-.left-container {
-  background-color: gold;
-  flex-basis: 0%;
-  flex-grow: 1;
-  flex-shrink: 1;
-  position: relative;
+.home-page .left-section img {
+  align-self: center;
+  margin: 2rem 0.75rem;
 }
 
-.logo {
-  left: 50%;
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
+.home-page .right-section {
+  background-color: #6681b4;
+  display: grid;
+  justify-content: center;
+  vertical-align: middle;
 }
 
-.main-container {
-  display: flex;
-  height: 100%;
+.home-page .right-section .form-section {
+  margin: 2rem 0.75rem;
+  align-self: center;
 }
 
-.right-container {
-  background-color: rgb(102,129,180);
-  display: flex;
-  flex-direction: column;
-  flex-basis: 0%;
-  flex-grow: 1;
-  flex-shrink: 1;
+.home-page h1 {
+  color: #191970;
 }
 
-.signup-container {
-  margin-top: 14px;
-}
-
-.signup-text {
-  font-size: 0.875rem;
+.home-page h3 {
+  color: #696969;
 }

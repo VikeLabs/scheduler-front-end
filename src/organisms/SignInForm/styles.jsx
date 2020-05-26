@@ -6,26 +6,32 @@ import Theme from '../../atoms/Theme/Theme';
 export const ForgotPwdBtn = styled(Button)({
   color: Theme.gray,
   marginLeft: 'auto',
-  marginTop: '2px',
+  marginTop: '0.5rem',
   textTransform: 'none',
   width: 'fit-content',
 });
 
 export const SigninBtn = styled(Button)({
+  justifyContent: 'center',
+  marginTop: '0.5rem',
   backgroundColor: Theme.primary,
   color: Theme.white,
-  margin: '8px auto',
-  padding: '6px 36px',
-  width: 'fit-content',
   '&:hover': {
     backgroundColor: Theme.secondary,
+    color: Theme.white,
   },
 });
 
-export const SigininGoogleBtn = styled(Button)({
+export const SignupBtn = styled(Button)({
+  color: Theme.secondary,
   textTransform: 'none',
 });
 
-export const TextFieldPwd = styled(TextField)({
-  marginTop: '8px',
+export const SigininGoogleBtn = styled(Button)({
+  color: Theme.secondary,
+  textTransform: 'none',
+});
+
+export const StyledTextField = styled(TextField)({
+  marginTop: '0.5rem',
 });

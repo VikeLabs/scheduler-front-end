@@ -1,4 +1,8 @@
-#signin {
+.signin form {
   display: flex;
   flex-direction: column;
+}
+
+.signin .signup-container .signup-text {
+  font-size: 0.875rem;
 }
